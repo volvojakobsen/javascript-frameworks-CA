@@ -49,7 +49,7 @@ export function Home() {
     <div>
         <input type="text" placeholder='search' onChange={(e) => setSearch(e.target.value)} />
     </div>
-    <div>
+    <div className='products'>
         {posts.filter((val) => {
             if (search === "") {
                 return val
@@ -58,13 +58,11 @@ export function Home() {
                 return val
             }
         }).map((val, key) => {
-            return <div className='products'>
-                <div className='product' key={key}>
+            return <div className='product' key={key}>
                 <h2>{val.title}</h2>
                 <img src={val.imageUrl} className="product-img" alt="" srcset="" />
                 <h4>$ {val.price}</h4>
                 <p>{val.description}</p>
-            </div>
             </div>
         })}
     </div>
