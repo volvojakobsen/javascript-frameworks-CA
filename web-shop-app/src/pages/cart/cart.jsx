@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import { ShopContext } from "../../context/shop-context";
-import {CartItem} from "./cart-item"
+import { CartItem } from "./cart-item"
+import "./cart.css"
 
-const url = 'https://api.noroff.dev/api/v1/online-shop';
+
 
 export const Cart = ({products, setProducts}) => {
     
     const { cartItems } = useContext(ShopContext);
-    console.log(cartItems);
+    
     
     return <div>
         <div>

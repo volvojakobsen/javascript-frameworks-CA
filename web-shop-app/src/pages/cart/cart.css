@@ -1,0 +1,17 @@
+
+.cart {
+    display: flex;
+    justify-content: center;
+}
+
+.productInCart {
+    display: flex;
+    width: 500px;
+    height: 300px;
+}
+
+.productImage {
+    max-height: 200px;
+    max-width: 200px;
+    object-fit: cover;
+}
