@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import "./home.css";
+import { Product } from "./product";
 
 const url = 'https://api.noroff.dev/api/v1/online-shop';
 
-export function Home() {
+
+export const Home = ({products, setProducts}) => {
   const [search, setSearch] = useState('');
-  console.log(search)
-  const [posts, setPosts] = useState([]);
   // State for holding our loading state
   const [isLoading, setIsLoading] = useState(false);
   // State for holding our error state
@@ -21,10 +21,10 @@ export function Home() {
         setIsLoading(true);
         const response = await fetch(url);
         const json = await response.json();
-        setPosts(json);
+        setProducts(json);
+        
         // Clear the loading state once we've successfully got our data
         setIsLoading(false);
-        console.log(posts)
       } catch (error) {
         // Clear the loading state if we get an error and then
         // set our error state to true
@@ -35,6 +35,7 @@ export function Home() {
 
     getData();
   }, []);
+
 
   if (isLoading) {
     return <div>Loading posts</div>;
@@ -50,7 +51,12 @@ export function Home() {
         <input type="text" placeholder='search' onChange={(e) => setSearch(e.target.value)} />
     </div>
     <div className='products'>
-        {posts.filter((val) => {
+        {products.map((product) => (
+            <Product data={product}/>
+        ))}
+    </div>
+    <div className='products'>
+        {products.filter((val) => {
             if (search === "") {
                 return val
             }
