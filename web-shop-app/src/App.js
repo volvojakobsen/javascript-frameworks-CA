@@ -6,6 +6,8 @@ import { Cart } from "./pages/cart/cart";
 import { ShopContextProvider, ShopContext } from './context/shop-context.jsx';
 import { useState } from 'react';
 
+
+
 function App() {
 
   const [products, setProducts] = useState([]);

@@ -1,16 +1,58 @@
-import React, { createContext, useState,} from "react";
+import React, { createContext, useState, useEffect} from "react";
 
 export const ShopContext = createContext(null);
 
-
+const url = 'https://api.noroff.dev/api/v1/online-shop';
 
 
 
 export const ShopContextProvider = (props) => {
+
+    const [products, setProducts] = useState([]);
+
+
+    useEffect(() => {
+        async function getData() {
+          try {
+            const response = await fetch(url);
+            const products2 = await response.json();
+            setProducts(products2);
+            return products2;
+          } catch (error) {
+          }
+        }
+    
+        getData();
+      }, []);
     const [cartItems, setCartItems] = useState([]);
 
     const resetCart = itemId => {
         setCartItems((prev) => ({...prev, [itemId]:  + 0}))
+    }
+
+    const getTotalAmountOfItems = () => {
+        for (let i = 0; i < cartItems; i++) {
+            let totalAmountOfItems = cartItems[i].value;
+            console.log("totaaaaaaaaaal")
+            console.log(totalAmountOfItems);
+        
+        }
+        return;
+    }
+    getTotalAmountOfItems();
+
+    
+
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                let itemInfo = products.find((product) => product.id === item);
+                totalAmount += cartItems[item] * itemInfo.price;
+            }
+            
+        }
+        return totalAmount;
     }
 
     const addToCart = itemId => {
@@ -27,7 +69,11 @@ export const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1}))
     }
 
-    const contextValue = {cartItems, addToCart, removeFromCart};
+    const updateCartItemCount = (newAmount, itemId) => {
+        setCartItems((prev) => ({...prev, [itemId]: newAmount}))
+    }
+
+    const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, getTotalAmountOfItems};
    
 
     return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>
