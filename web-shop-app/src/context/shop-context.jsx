@@ -30,17 +30,27 @@ export const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]:  + 0}))
     }
 
+    const totalItems = () => {
+        return Object.values(cartItems).reduce((total, value) => total + value, 0)
+      }
+    
+    console.log(totalItems())
+/*
     const getTotalAmountOfItems = () => {
-        for (let i = 0; i < cartItems; i++) {
-            let totalAmountOfItems = cartItems[i].value;
-            console.log("totaaaaaaaaaal")
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                let totalAmountOfItems = cartItems[item].value;
+            }
+            
+            console.log("totaaaaaaaaaal");
+            console.log(cartItems);
             console.log(totalAmountOfItems);
         
         }
         return;
     }
     getTotalAmountOfItems();
-
+*/
     
 
     const getTotalCartAmount = () => {
@@ -73,7 +83,7 @@ export const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: newAmount}))
     }
 
-    const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, getTotalAmountOfItems};
+    const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, totalItems};
    
 
     return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>
