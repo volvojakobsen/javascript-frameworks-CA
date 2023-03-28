@@ -11,13 +11,14 @@ import { useState } from 'react';
 function App() {
 
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState('');
   return (
     <div className="App">
       <ShopContextProvider>
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home products={products} setProducts={setProducts} />} />
+            <Route path="/" element={<Home products={products} setProducts={setProducts} search={search} setSearch={setSearch} />} />
             <Route path="/cart" element={<Cart products={products} setProducts={setProducts} />} />
           </Routes>
         </Router>

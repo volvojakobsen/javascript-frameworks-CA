@@ -5,8 +5,7 @@ import { Product } from "./product";
 const url = 'https://api.noroff.dev/api/v1/online-shop';
 
 
-export const Home = ({products, setProducts}) => {
-  const [search, setSearch] = useState('');
+export const Home = ({products, setProducts, search, setSearch}) => {
   // State for holding our loading state
   const [isLoading, setIsLoading] = useState(false);
   // State for holding our error state
@@ -51,11 +50,6 @@ export const Home = ({products, setProducts}) => {
         <input type="text" placeholder='search' onChange={(e) => setSearch(e.target.value)} />
     </div>
     <div className='products'>
-        {products.map((product) => (
-            <Product data={product}/>
-        ))}
-    </div>
-    <div className='products'>
         {products.filter((val) => {
             if (search === "") {
                 return val
@@ -63,14 +57,9 @@ export const Home = ({products, setProducts}) => {
             else if (val.title.toLowerCase().includes(search.toLocaleLowerCase())) {
                 return val
             }
-        }).map((val, key) => {
-            return <div className='product' key={key}>
-                <h2>{val.title}</h2>
-                <img src={val.imageUrl} className="product-img" alt="" srcset="" />
-                <h4>$ {val.price}</h4>
-                <p>{val.description}</p>
-            </div>
-        })}
+        }).map((product) => (
+            <Product data={product}/>
+        ))}
     </div>
     </>
     
