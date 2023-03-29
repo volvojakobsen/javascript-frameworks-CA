@@ -5,12 +5,6 @@ import "./productDetails.css";
 
 
 export const ProductDetails = () => {
-    /*
-    const { cartItems, getTotalCartAmount } = useContext(ShopContext);
-
-    const totalAmount = getTotalCartAmount();
-    const navigate = useNavigate();
-    */
    const id = useParams(); 
    const [singleProduct, setSingleProduct] = useState([]);
    const [isLoading, setIsLoading] = useState(false);
@@ -33,7 +27,14 @@ export const ProductDetails = () => {
      }
  
      getData();
-   }, []);
+   }, [id.id]);
+
+   
+
+   const savings = parseInt(singleProduct.price) - parseInt(singleProduct.discountedPrice);
+   const formatedSavings = "Discounted: $" + savings + " Off!";
+   
+   
  
    if (isLoading) {
      return <div>Loading posts</div>;
@@ -42,17 +43,16 @@ export const ProductDetails = () => {
    if (isError) {
      return <div>Error loading data</div>;
    }
-  /*console.log(singleProduct);*/
-  console.log(singleProduct.reviews);
 
    return <>
-    <div>
+    <div className="container">
         <div className="singleItem">
             <img src={singleProduct.imageUrl} className="singleProductImage" alt="" srcset="" />
             <div className="details">
                <h2>{singleProduct.title}</h2>
-              <div>
-                <h3>{singleProduct.price}</h3>
+              <div className="pricing">
+                <h3>price: ${singleProduct.discountedPrice}</h3>
+                <h3>{savings > 0 ? <h2>{formatedSavings}</h2> : <h2></h2>}</h3>
               </div>
               <h1>Rating: {singleProduct.rating} of 5</h1>
               <div>
@@ -79,32 +79,3 @@ export const ProductDetails = () => {
     </div>
     </>
 };
-
-/*
-<div className="reviews">
-                {singleProduct.reviews.map((singleProduct) => {
-                  if(singleProduct.reviews > 0) {
-                      return <Reviews data={singleProduct} />
-                  }
-                })}
-            </div>
-            */
-
-
-
-
-            /*
-
-            <div>
-              <h4>reviews</h4>
-              {singleProduct.reviews.map(post =>{
-                return (
-                  <div className="singleReview">
-                    <div className="name"><div>By: {post.username}</div>rated it: {post.rating} of 5.</div>
-                    <div className="comment">{post.description}</div>
-                  </div>
-                );
-
-              })};
-              </div>
-              */
