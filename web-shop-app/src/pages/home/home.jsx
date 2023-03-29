@@ -46,8 +46,10 @@ export const Home = ({products, setProducts, search, setSearch}) => {
 
   return (
     <>
-    <div>
-        <input type="text" placeholder='search' onChange={(e) => setSearch(e.target.value)} />
+    <h1>Products</h1>
+    <div className='search-div'>
+        <p>search product: </p>
+        <input className='search-input' type="text" placeholder='search' onChange={(e) => setSearch(e.target.value)} />
     </div>
     <div className='products'>
         {products.filter((val) => {

@@ -23,3 +23,14 @@
     max-width: 200px;
     object-fit: cover;
 }
+
+.search-div {
+    display: flex;
+    justify-content: center;
+}
+
+.search-input {
+    height: 20px;
+    margin-top: 14px;
+    margin-left: 10px;
+}

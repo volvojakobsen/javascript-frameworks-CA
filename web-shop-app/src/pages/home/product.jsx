@@ -2,19 +2,12 @@ import React, { useContext } from "react";
 import {ShopContext} from "../../context/shop-context";
 import { useNavigate } from "react-router-dom";
 
-export const Product = (props, search, products) => {
+export const Product = (props) => {
     const {id, title, description, price, imageUrl} = props.data;
     const { addToCart, cartItems } = useContext(ShopContext);
     const cartItemAmount = cartItems[id];
     const navigate = useNavigate();
-   /*
-    if (search === "") {
-    }
-    else if (products.filter((val) => {
-        val.title.toLowerCase().includes(search.toLocaleLowerCase())
-        return val;
-    }))
-    */
+   
     return (<div className="product">
         <img src={imageUrl} className="product-img" alt="" srcset="" />
         <h2>{title}</h2>
