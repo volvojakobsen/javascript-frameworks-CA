@@ -12,8 +12,10 @@ export const Product = (props) => {
         <img src={imageUrl} className="product-img" alt="" srcset="" />
         <h2>{title}</h2>
         <h4>{price}</h4>
-        <button onClick={() => navigate(`/productDetails/${id}`)}>View Item</button>
-        <button onClick={() => addToCart(id)}>Add To Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}</button>
+        <div>
+        <button className="view-btn" onClick={() => navigate(`/productDetails/${id}`)}>View Item</button>
+        <button className="add-btn" onClick={() => addToCart(id)}>Add To Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}</button>
+        </div>
         <p>{description}</p>
     </div>);
 }

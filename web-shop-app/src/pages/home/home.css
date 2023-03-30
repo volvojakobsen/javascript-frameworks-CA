@@ -1,4 +1,22 @@
+.main {
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column;
+  }
 
+.view-btn {
+    border: 2px solid blue;
+    border-radius: 6px;
+    min-height: 30px;
+    margin: 10px;
+}
+
+.add-btn {
+    border: 2px solid blue;
+    border-radius: 6px;
+    min-height: 30px;
+    margin: 10px;
+}
 
 .products {
     display: flex;

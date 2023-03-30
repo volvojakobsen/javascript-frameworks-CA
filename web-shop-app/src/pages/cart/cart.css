@@ -1,4 +1,11 @@
 
+
+.main {
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column;
+  }
+
 .cart {
     display: flex;
     justify-content: center;

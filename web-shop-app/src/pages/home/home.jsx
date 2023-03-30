@@ -46,23 +46,26 @@ export const Home = ({products, setProducts, search, setSearch}) => {
 
   return (
     <>
-    <h1>Products</h1>
-    <div className='search-div'>
-        <p>search product: </p>
-        <input className='search-input' type="text" placeholder='search' onChange={(e) => setSearch(e.target.value)} />
+    <div className='main'>
+      <h1>Products</h1>
+      <div className='search-div'>
+          <p>search product: </p>
+          <input className='search-input' type="text" placeholder='search' onChange={(e) => setSearch(e.target.value)} />
+      </div>
+      <div className='products'>
+          {products.filter((val) => {
+              if (search === "") {
+                  return val
+              }
+              else if (val.title.toLowerCase().includes(search.toLocaleLowerCase())) {
+                  return val
+              }
+          }).map((product) => (
+              <Product data={product}/>
+          ))}
+      </div>
     </div>
-    <div className='products'>
-        {products.filter((val) => {
-            if (search === "") {
-                return val
-            }
-            else if (val.title.toLowerCase().includes(search.toLocaleLowerCase())) {
-                return val
-            }
-        }).map((product) => (
-            <Product data={product}/>
-        ))}
-    </div>
+    
     </>
     
   );

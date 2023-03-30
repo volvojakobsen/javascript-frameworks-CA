@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect} from "react";
 
+
 export const ShopContext = createContext(null);
 
 const url = 'https://api.noroff.dev/api/v1/online-shop';
@@ -9,6 +10,7 @@ const url = 'https://api.noroff.dev/api/v1/online-shop';
 export const ShopContextProvider = (props) => {
 
     const [products, setProducts] = useState([]);
+    
 
 
     useEffect(() => {
@@ -19,6 +21,7 @@ export const ShopContextProvider = (props) => {
             setProducts(products2);
             return products2;
           } catch (error) {
+            return <div>There was a problem fetching the product.</div>
           }
         }
     
@@ -26,9 +29,7 @@ export const ShopContextProvider = (props) => {
       }, []);
     const [cartItems, setCartItems] = useState([]);
 
-    const resetCart = itemId => {
-        setCartItems((prev) => ({...prev, [itemId]:  + 0}))
-    }
+   
 
     const totalItems = () => {
         return Object.values(cartItems).reduce((total, value) => total + value, 0)
@@ -46,7 +47,7 @@ export const ShopContextProvider = (props) => {
             }
             
         }
-        return totalAmount;
+        return parseInt(totalAmount);
     }
 
     const addToCart = itemId => {
@@ -67,7 +68,7 @@ export const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: newAmount}))
     }
 
-    const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, totalItems};
+    const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, totalItems, setCartItems};
 
    
 
