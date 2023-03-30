@@ -6,7 +6,7 @@ export const Contact = () => {
 
     return <div className="main">
         <h1>Contact</h1>
-        <form className="contactForm" action="#" method="#">
+        <form className="contactForm"  method="#">
             <input type="text" placeholder="Full Name" minLength="3" required  />
             <input type="text" placeholder="Subject" minLength="3" required  />
             <input type="email" placeholder="email"  required  />
