@@ -51,7 +51,7 @@ export const ProductDetails = () => {
             <div className="details">
                <h2>{singleProduct.title}</h2>
               <div className="pricing">
-                <h3>price: ${singleProduct.discountedPrice}</h3>
+                <h3>Price: ${singleProduct.discountedPrice}</h3>
                 <h3>{savings > 0 ? <h2>{formatedSavings}</h2> : <h2></h2>}</h3>
               </div>
               <h1>Rating: {singleProduct.rating} of 5</h1>
@@ -60,13 +60,15 @@ export const ProductDetails = () => {
                   <input value={cartItems[id.id]} onChange={(e) => updateCartItemCount(Number(e.target.value), id.id)} />
                   <button onClick={() => addToCart(id.id)}> + </button>
               </div>
+              <div className="description">
               <p>{singleProduct.description}</p>
+              </div>
               <div>
-              <h4>reviews</h4>
+              <h4>Reviews</h4>
               {singleProduct.reviews && singleProduct.reviews.map(post =>{
                 return (
                   <div className="singleReview" key={post.id}>
-                    <div className="name"><div>By: {post.username}</div>rated it: {post.rating} of 5.</div>
+                    <div className="name"><div>By: {post.username}</div>Rated it: {post.rating} of 5.</div>
                     <div className="comment">{post.description}</div>
                   </div>
                 );

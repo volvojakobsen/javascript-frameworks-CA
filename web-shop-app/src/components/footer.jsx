@@ -8,13 +8,13 @@ export const Footer = () => {
     return <>
     <div className="footer">
         <div>
-            <h4>info</h4>
-            <p>phone: 999-888-555</p>
-            <p>mail: webshop@webShop.gov</p>
+            <h4>Info</h4>
+            <p>Phone: 999-888-555</p>
+            <p>Mail: webshop@webShop.gov</p>
         </div>
         <div>
             <h4>links</h4>
-            <button onClick={() => navigate("/contact")}>Contact</button>
+            <button className="contact-btn" onClick={() => navigate("/contact")}>Contact Page</button>
             
         </div>
     </div>
