@@ -1,4 +1,5 @@
 import React from 'react';
+import "./checkoutSuccess.css";
 
 
 
@@ -6,7 +7,7 @@ export const CheckoutSuccess = () => {
   
 
   return <>
-  <div>order completed</div>
+  <div className='main'>order completed</div>
   </>
 }
 

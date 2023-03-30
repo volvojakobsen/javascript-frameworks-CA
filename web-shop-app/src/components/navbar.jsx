@@ -13,6 +13,7 @@ export const Navbar = () => {
 
     return (
         <div className="navbar">
+            <h1>Web-Shop</h1>
             <div className="links">
                 <Link to="/"> Home </Link>
                 <Link to="/cart" className="cart-span"> <ShoppingCart size={32} /> <span>{totalItems2}</span></Link>
