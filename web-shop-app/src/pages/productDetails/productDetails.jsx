@@ -47,12 +47,12 @@ export const ProductDetails = () => {
    return <>
     <div className="container">
         <div className="singleItem">
-            <img src={singleProduct.imageUrl} className="singleProductImage" alt="" srcset="" />
+            <img src={singleProduct.imageUrl} className="singleProductImage" alt="" srcSet="" />
             <div className="details">
                <h2>{singleProduct.title}</h2>
               <div className="pricing">
                 <h3>Price: ${singleProduct.discountedPrice}</h3>
-                <h3>{savings > 0 ? <h2>{formatedSavings}</h2> : <h2></h2>}</h3>
+                <div>{savings > 0 ? <h4>{formatedSavings}</h4> : <h4></h4>}</div>
               </div>
               <h1>Rating: {singleProduct.rating} of 5</h1>
               <div>

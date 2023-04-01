@@ -52,8 +52,8 @@ export const Home = ({products, setProducts, search, setSearch}) => {
               else if (val.title.toLowerCase().includes(search.toLocaleLowerCase())) {
                   return val
               }
-          }).map((product) => (
-              <Product data={product}/>
+          }).map((product,i) => (
+              <Product key={i} data={product}/>
           ))}
       </div>
     </div>

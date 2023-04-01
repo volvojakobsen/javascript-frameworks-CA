@@ -9,7 +9,7 @@ export const Product = (props) => {
     const navigate = useNavigate();
    
     return (<div className="product">
-        <img src={imageUrl} className="product-img" alt="" srcset="" />
+        <img src={imageUrl} className="product-img" alt="product image" srcSet="" />
         <h2>{title}</h2>
         <h4>{discountedPrice}</h4>
         <div>

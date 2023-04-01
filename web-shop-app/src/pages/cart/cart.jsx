@@ -24,9 +24,9 @@ export const Cart = ({products}) => {
             <h1>your cart items</h1>
         </div>
         <div className="cartItems">
-            {products.map((product) => {
+            {products.map((product, k) => {
                 if(cartItems[product.id]) {
-                    return <CartItem data={product} />
+                    return <CartItem key={k} data={product} />
                 }
             })}
         </div>
