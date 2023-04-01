@@ -3,7 +3,7 @@ import {ShopContext} from "../../context/shop-context";
 import { useNavigate } from "react-router-dom";
 
 export const Product = (props) => {
-    const {id, title, description, price, imageUrl} = props.data;
+    const {id, title, description, discountedPrice, imageUrl} = props.data;
     const { addToCart, cartItems } = useContext(ShopContext);
     const cartItemAmount = cartItems[id];
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ export const Product = (props) => {
     return (<div className="product">
         <img src={imageUrl} className="product-img" alt="" srcset="" />
         <h2>{title}</h2>
-        <h4>{price}</h4>
+        <h4>{discountedPrice}</h4>
         <div>
         <button className="view-btn" onClick={() => navigate(`/productDetails/${id}`)}>View Item</button>
         <button className="add-btn" onClick={() => addToCart(id)}>Add To Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}</button>

@@ -37,7 +37,7 @@ export const ProductDetails = () => {
    
  
    if (isLoading) {
-     return <div>Loading posts</div>;
+     return <div className="loader"></div>;
    }
  
    if (isError) {
