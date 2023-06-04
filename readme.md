@@ -1,4 +1,4 @@
-# javascript-frameworks-CA
+# Javascript-frameworks-CA
 
 This is my first project made in React. it is a online store where
 the user can browse and search products and add them to cart, and
