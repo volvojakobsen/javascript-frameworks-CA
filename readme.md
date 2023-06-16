@@ -1,5 +1,7 @@
 # Javascript-frameworks-CA
 
+![image](https://github.com/volvojakobsen/portfolio/blob/main/images/web-shop.png)
+
 This is my first project made in React. it is a online store where
 the user can browse and search products and add them to cart, and
 also do a checkout with the cart where the items will be removed
